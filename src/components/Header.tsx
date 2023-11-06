@@ -1,7 +1,10 @@
+import { sendUserOperation } from "core/sendUserOperation"
+
 export const Header = () => {
   return (
     <div className="header-section">
       <h1>StoryChain</h1>
+      <button onClick={() => sendUserOperation()}>Send User Operation</button>
       <p>
         「StoryChain」は、共創の精神とAIの力を組み合わせた画期的な小説作成サービスです。
         参加者が投稿した短文から、OpenAIが魅力的な物語を紡ぎ出します。
