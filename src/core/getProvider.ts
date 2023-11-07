@@ -8,10 +8,10 @@ import { sepolia } from "viem/chains"
 
 export const getProvider = async () => {
   const chain = sepolia
-  const PRIVATE_KEY = process.env.NEXT_PUBLIC_LIGHT_ACCOUNT_OWNER_PRIVATE_KEY as `0x${string}`
+  const PRIVATE_KEY = `0x${process.env.NEXT_PUBLIC_LIGHT_ACCOUNT_OWNER_PRIVATE_KEY}` as `0x${string}`
   const ALCHEMY_API_KEY = process.env.NEXT_PUBLIC_ALCHEMY_API_KEY_SEPOLIA
   // https://docs.alchemy.com/reference/eth-supportedentrypoints
-  const ENTRYPOINT_ADDRESS = "5FF137D4b0FDCD49DcA30c7CF57E578a026d2789" as `0x${string}`
+  const ENTRYPOINT_ADDRESS = "0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789"
 
   const eoaSigner: SmartAccountSigner = LocalAccountSigner.privateKeyToAccountSigner(PRIVATE_KEY)
 
