@@ -1,4 +1,4 @@
-import { sendUserOperation } from "core/sendUserOperation"
+import { sendUserOperation } from "core/userOperation"
 
 export const Header = () => {
   return (

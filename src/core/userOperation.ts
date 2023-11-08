@@ -1,6 +1,6 @@
 import { SendUserOperationResult } from "@alchemy/aa-core"
 import { parseEther } from "viem"
-import { getProvider } from "./getProvider"
+import { getProvider } from "./provider"
 import { encodeFunctionData } from "viem"
 import { AlchemyTokenAbi, tokenContractAddress } from "../abi/alchemyTokenAbi"
 
