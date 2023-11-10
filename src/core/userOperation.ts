@@ -1,12 +1,14 @@
 import { SendUserOperationResult } from "@alchemy/aa-core"
 import { parseEther } from "viem"
-import { getProvider } from "./provider"
+import { getSenderWithEoa } from "./senderWithEoa"
+import { getSenderWithW3A } from "./senderWithW3A"
 import { encodeFunctionData } from "viem"
 import { AlchemyTokenAbi, tokenContractAddress } from "../abi/alchemyTokenAbi"
+import { logoutWeb3Auth } from "./web3Auth"
 
 export const sendUserOperation = async () => {
-  const provider = await getProvider()
-  provider.getAddress().then((address: string) => console.log(address))
+  const provider = await getSenderWithW3A()
+  provider.getAddress().then((address: string) => console.log("sender address: ", address))
 
   const targetAddress = "56a4975de8F187667AfDd1DBde72cf6CF88BfBb4"
   const amountToSend: bigint = parseEther("0.0001")
@@ -38,4 +40,6 @@ export const sendUserOperation = async () => {
     hash: txHash,
   })
   console.log("\nTransaction receipt: ", txReceipt)
+
+  await logoutWeb3Auth()
 }
