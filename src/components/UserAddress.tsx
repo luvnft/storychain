@@ -13,6 +13,7 @@ export const UserAddress = () => {
       }
     }
 
+    setIsClicked(false)
     redirectTo()
   }, [isClicked]) // isClickedが変更されたときにuseEffectをトリガー
 

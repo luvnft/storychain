@@ -13,6 +13,7 @@ export const UserAttestation = () => {
       }
     }
 
+    setIsClicked(false)
     redirectTo()
   }, [isClicked]) // isClickedが変更されたときにuseEffectをトリガー
 

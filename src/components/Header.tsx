@@ -3,6 +3,7 @@ import { useState } from "react"
 import { SendUserOperation } from "./SendUserOperation"
 import { Attetation } from "./Attestation"
 import { UserAttestation } from "./UserAttestation"
+import { Logout } from "./Logout"
 
 export const Header = () => {
   const [loginStatus, setLoginStatus] = useState(false)
@@ -21,6 +22,9 @@ export const Header = () => {
       <br />
       <br />
       <UserAttestation />
+      <br />
+      <br />
+      <Logout />
       <br />
       <br />
       <p>

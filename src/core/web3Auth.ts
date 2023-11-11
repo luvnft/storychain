@@ -6,8 +6,10 @@ import { createWalletClient, custom } from "viem"
 import { getSenderWithW3A } from "./senderWithW3A"
 import { send } from "process"
 
+let web3auth: Web3Auth
+
 const getWeb3Auth = async () => {
-  const web3auth = new Web3Auth({
+  web3auth = new Web3Auth({
     clientId: process.env.NEXT_PUBLIC_WEB3AUTH_CLIENT_ID_MUMBAI as string,
     web3AuthNetwork: "sapphire_devnet", // Web3Auth Network
     chainConfig: mumbaiChainConfig,
@@ -20,7 +22,7 @@ const getWeb3Auth = async () => {
 }
 
 export const getWeb3AuthClient = async () => {
-  const web3auth = await getWeb3Auth()
+  if (web3auth === undefined) web3auth = await getWeb3Auth()
 
   if (web3auth.provider === null) {
     throw new Error("web3auth.provider is null")
@@ -51,7 +53,7 @@ export const getWeb3AuthSigner = async () => {
 }
 
 export const logoutWeb3Auth = async () => {
-  const web3auth = await getWeb3Auth()
+  if (web3auth === undefined) web3auth = await getWeb3Auth()
   web3auth
     .logout()
     .then(() => console.log("web3auth logged out"))
