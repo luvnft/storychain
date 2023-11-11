@@ -3,7 +3,7 @@ import { parseEther } from "viem"
 import { getSenderWithEoa } from "./senderWithEoa"
 import { getSenderWithW3A } from "./senderWithW3A"
 import { encodeFunctionData } from "viem"
-import { AlchemyTokenAbi, tokenContractAddress } from "../abi/alchemyTokenAbi"
+import { AlchemyTokenAbi, tokenContractAddress } from "../abi/alchemyToken.abi"
 import { logoutWeb3Auth } from "./web3Auth"
 
 export const sendUserOperation = async () => {
