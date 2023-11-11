@@ -1,14 +1,16 @@
 import { AlchemyProvider } from "@alchemy/aa-alchemy"
 import { WalletClientSigner, type SmartAccountSigner } from "@alchemy/aa-core"
 import { Web3Auth } from "@web3auth/modal"
-import { sepoliaChainConfig } from "config/w3aChainConfig"
+import { sepoliaChainConfig, mumbaiChainConfig } from "config/w3aChainConfig"
 import { createWalletClient, custom } from "viem"
+import { getSenderWithW3A } from "./senderWithW3A"
+import { send } from "process"
 
 const getWeb3Auth = async () => {
   const web3auth = new Web3Auth({
-    clientId: process.env.NEXT_PUBLIC_WEB3AUTH_CLIENT_ID as string,
-    web3AuthNetwork: "sapphire_mainnet", // Web3Auth Network
-    chainConfig: sepoliaChainConfig,
+    clientId: process.env.NEXT_PUBLIC_WEB3AUTH_CLIENT_ID_MUMBAI as string,
+    web3AuthNetwork: "sapphire_devnet", // Web3Auth Network
+    chainConfig: mumbaiChainConfig,
   })
 
   await web3auth.initModal()
@@ -42,6 +44,8 @@ export const getWeb3AuthSigner = async () => {
     web3authClient,
     "web3auth" // signerType
   )
+
+  console.log("web3authSigner.getAddress(): ", await web3authSigner.getAddress())
 
   return web3authSigner
 }

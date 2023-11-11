@@ -4,12 +4,12 @@ import {
 } from "@alchemy/aa-accounts"
 import { AlchemyProvider } from "@alchemy/aa-alchemy"
 import { LocalAccountSigner, type SmartAccountSigner } from "@alchemy/aa-core"
-import { sepolia } from "viem/chains"
+import { polygonMumbai } from "viem/chains"
 import { getWeb3AuthSigner } from "./web3Auth"
 
 export const getSenderWithW3A = async () => {
-  const chain = sepolia
-  const ALCHEMY_API_KEY = process.env.NEXT_PUBLIC_ALCHEMY_API_KEY_SEPOLIA
+  const chain = polygonMumbai
+  const ALCHEMY_API_KEY = process.env.NEXT_PUBLIC_ALCHEMY_API_KEY_MUMBAI
   // https://docs.alchemy.com/reference/eth-supportedentrypoints
   const ENTRYPOINT_ADDRESS = "0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789"
 
@@ -18,7 +18,7 @@ export const getSenderWithW3A = async () => {
   // Create a provider with your EOA as the smart account owner, this provider is used to send user operations from your smart account and interact with the blockchain
   const provider = new AlchemyProvider({
     // apiKey: ALCHEMY_API_KEY,
-    rpcUrl: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`, // or replace with your Alchemy API key, you can get one at https://dashboard.alchemy.com/
+    rpcUrl: `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_API_KEY}`, // or replace with your Alchemy API key, you can get one at https://dashboard.alchemy.com/
     chain,
     // Entrypoint address, you can use a different entrypoint if needed, check out https://docs.alchemy.com/reference/eth-supportedentrypoints for all the supported entrypoints
     // entryPointAddress: ENTRYPOINT_ADDRESS,
@@ -34,7 +34,7 @@ export const getSenderWithW3A = async () => {
   )
 
   provider.withAlchemyGasManager({
-    policyId: process.env.NEXT_PUBLIC_GAS_MANAGER_POLICY_ID as string,
+    policyId: process.env.NEXT_PUBLIC_GAS_MANAGER_POLICY_ID_MUMBAI as string,
   })
 
   return provider
