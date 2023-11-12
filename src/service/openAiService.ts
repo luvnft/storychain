@@ -51,7 +51,7 @@ export const generateResponse = async (queue: string): Promise<UserNovelData | u
 
   if (chatCompletion.choices) {
     userNovelData.outputContent = chatCompletion.choices[0].message.content?.toString() as string
-    // await getNovelAttestation(userNovelData)
+    await getNovelAttestation(userNovelData)
     return userNovelData
   }
 }
