@@ -4,7 +4,7 @@ import path from "path"
 import { Data, Story } from "common/types"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const filePath = path.join(process.cwd(), "src/pages/api/story/data", "story.json")
+  const filePath = path.join(process.cwd(), "/tmp", "story.json")
   const data = JSON.parse(fs.readFileSync(filePath, "utf-8"))
   const stories = data.story
 

@@ -5,7 +5,7 @@ import { error } from "console"
 import { Data, Story, Stories } from "common/types"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const filePath = path.join(process.cwd(), "src/pages/api/story/data", "story.json")
+  const filePath = path.join(process.cwd(), "/tmp", "story.json")
   const stories = JSON.parse(fs.readFileSync(filePath, "utf-8"))
   if (req.method === "POST") {
     try {
