@@ -25,7 +25,8 @@ export const closeStory = async (id: number) => {
     })
 
     if (!response.ok) {
-      throw new Error("Network response was not ok.")
+      const errorResponse = await response.json()
+      throw new Error("Network response was not ok.: " + errorResponse.message)
     }
 
     const data = await response.json()
