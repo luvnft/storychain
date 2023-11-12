@@ -1,24 +1,42 @@
 import { OpenAI } from "openai"
 import { generateNovel } from "config/prompt/generateNovel"
 import { Queue, UserNovelData } from "common/types"
-import { fetchStories } from "service/readStory"
+import { fetchStories } from "service/handleStory"
 import { getNovelAttestation } from "core/attestation"
 
-let userNovelData: UserNovelData = { previousContent: "", inputSentence: "", outputContent: "" }
+let userNovelData: UserNovelData = {
+  previousContent: "",
+  inputSentence: "",
+  outputContent: "",
+  storyId: 0,
+}
+
+type NovelResponse = {
+  openAiResponse: string
+  storyId: number
+}
 
 const openai = new OpenAI({
   apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
   dangerouslyAllowBrowser: true,
 })
 
-export const generateResponse = async (queue: string): Promise<string | undefined> => {
+export const generateResponse = async (queue: string): Promise<UserNovelData | undefined> => {
   const previousContent = await fetchStories()
-  userNovelData.previousContent = previousContent[0].content
+
+  for (let i = 0; i < previousContent.length; i++) {
+    if (previousContent[i].isOpen) {
+      userNovelData.storyId = previousContent[i].id
+      userNovelData.previousContent = previousContent[i].content
+      break
+    }
+  }
+
   userNovelData.inputSentence = queue
 
   const requestData: Queue = {
-    newSentence: queue,
-    priviousSentence: previousContent[0].content,
+    newSentence: userNovelData.inputSentence,
+    priviousSentence: userNovelData.previousContent,
   }
 
   const chatCompletion = await openai.chat.completions.create({
@@ -34,11 +52,11 @@ export const generateResponse = async (queue: string): Promise<string | undefine
   if (chatCompletion.choices) {
     userNovelData.outputContent = chatCompletion.choices[0].message.content?.toString() as string
     // await getNovelAttestation(userNovelData)
-    return chatCompletion.choices[0].message.content?.toString()
+    return userNovelData
   }
 }
 
-export const saveContent = async (response: string): Promise<any> => {
+export const saveContent = async (response: UserNovelData): Promise<any> => {
   // JSONファイルへの保存ロジック
   const res = await fetch("/api/story/content", {
     method: "POST",
@@ -46,8 +64,8 @@ export const saveContent = async (response: string): Promise<any> => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      id: 1,
-      content: response,
+      id: response.storyId,
+      content: response.outputContent,
       updatedAt: new Date().toISOString(),
     }),
   })

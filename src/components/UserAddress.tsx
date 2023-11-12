@@ -19,7 +19,7 @@ export const UserAddress = () => {
 
   return (
     <button className="btn" onClick={() => setIsClicked(true)}>
-      See your account
+      アカウントを確認する
     </button>
   )
 }

@@ -1,20 +1,3 @@
-/* html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-} */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 * {
@@ -74,15 +57,17 @@ button {
   outline: none;
   background-color: #343536;
   color: #DADADB;
-  transition: all 0.5s ease-in-out;
+  /* transition: all 0.5s ease-in-out; */
 }
 
 .form-control:focus {
-  border-left: 5px solid #CA228C;
-  border-top: 5px solid #CA228C;
-  border-top-left-radius: 0%;
+  border-left: 1px solid #CA228C;
+  border-top: 1px solid #CA228C;
+  border-right: 1px solid #CA228C;
+  border-bottom: 1px solid #CA228C;
+  /* border-top-left-radius: 0%;
   border-bottom-left-radius: 0%;
-  border-top-right-radius: 0%;
+  border-top-right-radius: 0%; */
 }
 
 .btn {
@@ -92,15 +77,44 @@ button {
   font-size: 1.2rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.5s ease-in-out;
+  margin: 0 10px;
+  /* transition: all 0.5s ease-in-out; */
+}
+
+.button-container {
+  display: flex; /* Flexboxの有効化 */
+  justify-content: space-around; /* ボタン間のスペースを均等に分配 */
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn:hover {
-  border-left: 5px solid #CA228C;
-  border-top: 5px solid #CA228C;
-  border-top-left-radius: 0%;
+  border-left: 1px solid #CA228C;
+  border-top: 1px solid #CA228C;
+  border-right: 1px solid #CA228C;
+  border-bottom: 1px solid #CA228C;
+  /* border-top-left-radius: 0%;
   border-bottom-left-radius: 0%;
-  border-top-right-radius: 0%;
+  border-top-right-radius: 0%; */
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  border-top: 4px solid #000;
+  width: 12px;
+  height: 12px;
+  animation: spin 2s linear infinite;
+  margin-right: 10px; /* スピナーとテキストの間に余白を追加 */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .hr-line {

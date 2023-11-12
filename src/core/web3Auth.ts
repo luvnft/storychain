@@ -46,7 +46,7 @@ export const getWeb3AuthSigner = async () => {
     web3authClient,
     "web3auth" // signerType
   )
-  
+
   return web3authSigner
 }
 

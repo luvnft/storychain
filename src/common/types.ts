@@ -15,11 +15,10 @@ export type Story = {
   id: number
   title: string
   content: string
-  inputSentence: string
-  outputContent: string
   slug: string
   createdAt: string
   updatedAt: string
+  isOpen: boolean
 }
 
 export type Stories = {
@@ -35,4 +34,5 @@ export type UserNovelData = {
   previousContent: string
   inputSentence: string
   outputContent: string
+  storyId: number
 }

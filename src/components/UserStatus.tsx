@@ -22,11 +22,11 @@ export const UserStatus = () => {
     <>
       {isLoggedIn ? (
         <button className="btn" onClick={handleLogout}>
-          Logout
+          ログアウト
         </button>
       ) : (
         <button className="btn" onClick={handleLogin}>
-          Login
+          ログイン
         </button>
       )}
     </>

@@ -4,6 +4,7 @@ import { StoryReader } from "components/StoryReader"
 import { InputSection } from "components/InputSection"
 import { AnswerSection } from "components/AnswerSection"
 import { useStoredValues } from "hooks/useStoredValues"
+import { NewStory } from "components/NewStory"
 
 const Home: NextPage = () => {
   const { storedValues, handleGenerateResponse } = useStoredValues()
@@ -11,6 +12,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Header />
+      <NewStory />
       <StoryReader />
       <InputSection generateResponse={handleGenerateResponse} />
       <AnswerSection storedValues={storedValues} />

@@ -8,7 +8,7 @@ export const useStoredValues = () => {
   const handleGenerateResponse = async (queue: string) => {
     const response = await generateResponse(queue)
     if (response) {
-      setStoredValues([...storedValues, { question: queue, answer: response }])
+      setStoredValues([...storedValues, { question: queue, answer: response.outputContent }])
       saveContent(response)
     }
   }
