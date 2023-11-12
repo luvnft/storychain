@@ -1,11 +1,16 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { Story } from "../common/types"
 import { fetchStories } from "../service/readStory"
+import { Web3AuthContext } from "../context/Web3AuthContext"
 
 export const StoryReader = () => {
   const [stories, setStories] = useState([])
+  const web3authContext = useContext(Web3AuthContext)
+  if (!web3authContext) {
+    throw new Error("Web3AuthContext is null")
+  }
+  const { isLoggedIn } = web3authContext
 
-  // コンポーネントがマウントされた時に実行される
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -19,16 +24,22 @@ export const StoryReader = () => {
   }, [])
 
   return (
-    <div>
-      <h2 className="story-section">紡ぐ物語</h2>
-      <ul>
-        {stories.map((story: Story) => (
-          <p key={story.id}>
-            {/* <h2>{story.title}</h2> */}
-            {story.content}
-          </p>
-        ))}
-      </ul>
-    </div>
+    <>
+      {isLoggedIn ? (
+        <div>
+          <h2 className="story-section">紡ぐ物語</h2>
+          <ul>
+            {stories.map((story: Story) => (
+              <p key={story.id}>
+                {/* <h2>{story.title}</h2> */}
+                {story.content}
+              </p>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div></div>
+      )}
+    </>
   )
 }

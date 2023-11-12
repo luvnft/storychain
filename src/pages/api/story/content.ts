@@ -5,7 +5,7 @@ import { error } from "console"
 import { Data, Story, Stories } from "common/types"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const filePath = path.join(process.cwd(), "src/pages/api/data", "story.json")
+  const filePath = path.join(process.cwd(), "src/pages/api/story/data", "story.json")
   const stories = JSON.parse(fs.readFileSync(filePath, "utf-8"))
   if (req.method === "POST") {
     try {
@@ -15,8 +15,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       }
 
       stories.story[storyIndex].content = req.body.content
-      // stories.story[storyIndex].outputContent = req.body.outputContent
-      stories.story[storyIndex].inputSentence = req.body.inputSentence
       stories.story[storyIndex].updatedAt = new Date().toISOString()
 
       fs.writeFile(filePath, JSON.stringify(stories, null, 1), "utf8", (err) => {

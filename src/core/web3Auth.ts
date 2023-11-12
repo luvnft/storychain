@@ -46,10 +46,12 @@ export const getWeb3AuthSigner = async () => {
     web3authClient,
     "web3auth" // signerType
   )
-
-  console.log("web3authSigner.getAddress(): ", await web3authSigner.getAddress())
-
+  
   return web3authSigner
+}
+
+export const checkLoginStatus = async () => {
+  return web3auth === undefined ? false : true
 }
 
 export const logoutWeb3Auth = async () => {
