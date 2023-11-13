@@ -32,9 +32,9 @@ export const StoryReader = () => {
           <ul>
             {stories !== undefined
               ? stories.map((story: Story) => (
-                  <p key={story.id}>
+                  <p key={story.uid}>
                     {/* <h2>{story.title}</h2> */}
-                    {story.isOpen ? story.content : null}
+                    {story.isopen ? story.content : null}
                   </p>
                 ))
               : null}

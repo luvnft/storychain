@@ -22,8 +22,8 @@ export const NewStory = () => {
     const fetchData = async () => {
       try {
         for (let i = 0; i < stories.length; i++) {
-          if (stories[i].isOpen === true) {
-            await closeStory(stories[i].id)
+          if (stories[i].isopen === true) {
+            await closeStory(stories[i].uid)
           }
         }
         const storyData = await newStory()

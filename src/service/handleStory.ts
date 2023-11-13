@@ -1,13 +1,13 @@
 export const fetchStories = async () => {
   try {
-    const response = await fetch("/api/story/content")
+    const response = await fetch("/api/story/getcontents")
 
     if (!response.ok) {
       throw new Error("Network response was not ok.")
     }
 
     const data = await response.json()
-    return data.story
+    return data.novels.rows
   } catch (error) {
     console.error("Fetch error: ", error)
     throw error
@@ -21,7 +21,7 @@ export const closeStory = async (id: number) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id: id }),
+      body: JSON.stringify({ uid: id }),
     })
 
     if (!response.ok) {
@@ -39,12 +39,12 @@ export const closeStory = async (id: number) => {
 
 export const newStory = async () => {
   try {
-    const response = await fetch("/api/story/newstory", {
+    const response = await fetch("/api/story/addnewstory", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({}),
+      body: JSON.stringify({ title: "" }),
     })
 
     if (!response.ok) {

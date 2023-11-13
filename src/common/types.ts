@@ -12,13 +12,13 @@ export type Data = {
 }
 
 export type Story = {
-  id: number
+  uid: number
   title: string
   content: string
   slug: string
-  createdAt: string
-  updatedAt: string
-  isOpen: boolean
+  createdat: string
+  updatedat: string
+  isopen: boolean
 }
 
 export type Stories = {

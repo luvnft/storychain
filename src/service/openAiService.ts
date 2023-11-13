@@ -25,8 +25,8 @@ export const generateResponse = async (queue: string): Promise<UserNovelData | u
   const previousContent = await fetchStories()
 
   for (let i = 0; i < previousContent.length; i++) {
-    if (previousContent[i].isOpen) {
-      userNovelData.storyId = previousContent[i].id
+    if (previousContent[i].isopen) {
+      userNovelData.storyId = previousContent[i].uid
       userNovelData.previousContent = previousContent[i].content
       break
     }
@@ -58,15 +58,14 @@ export const generateResponse = async (queue: string): Promise<UserNovelData | u
 
 export const saveContent = async (response: UserNovelData): Promise<any> => {
   // JSONファイルへの保存ロジック
-  const res = await fetch("/api/story/content", {
+  const res = await fetch("/api/story/updatecontent", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      id: response.storyId,
+      uid: response.storyId,
       content: response.outputContent,
-      updatedAt: new Date().toISOString(),
     }),
   })
 
