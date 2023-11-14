@@ -28,6 +28,16 @@ NEXT_PUBLIC_ALCHEMY_API_KEY_MUMBAI=<Your Alchemy API Key>
 NEXT_PUBLIC_WEB3AUTH_CLIENT_ID_MUMBAI=<Your Web3Auth Client ID>
 ```
 
+Additionally, this app utilizes Vercel PostgreSQL. Therefore, you need to include the following information in your .env file to connect to this database:
+
+```
+# Vercel PostgreSQL
+POSTGRES_DATABASE="verceldb"
+POSTGRES_HOST=<Your DB host name>
+POSTGRES_PASSWORD=<Your DB password>
+POSTGRES_URL=<Your DB URLe>
+```
+
 ### Other commands
 
 ```bash
