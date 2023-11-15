@@ -24,6 +24,7 @@ export const NewStory = () => {
         for (let i = 0; i < stories.length; i++) {
           if (stories[i].isopen === true) {
             await closeStory(stories[i].uid)
+            break
           }
         }
         const storyData = await newStory()
@@ -33,13 +34,12 @@ export const NewStory = () => {
       }
     }
     fetchData()
-    setIsClicked(false)
   }, [isClicked])
 
   return (
     <>
       {isLoggedIn ? (
-        <button className="btn" onClick={() => setIsClicked(true)}>
+        <button className="btn" onClick={() => setIsClicked(!isClicked)}>
           新しい物語を紡ぎはじめる
         </button>
       ) : null}
