@@ -40,7 +40,7 @@ export const NewStory = () => {
     <>
       {isLoggedIn ? (
         <button className="btn" onClick={() => setIsClicked(!isClicked)}>
-          新しい物語を紡ぎはじめる
+          新しい物語をはじめる
         </button>
       ) : null}
     </>

@@ -28,11 +28,11 @@ export const StoryReader = () => {
     <>
       {isLoggedIn ? (
         <div>
-          <h2 className="story-section">紡ぐ物語</h2>
+          <h2 className="story-section">さあ、物語の続きを書きましょう</h2>
           <ul>
             {stories !== undefined
               ? stories.map((story: Story) => (
-                  <p key={story.uid}>
+                  <p className="story" key={story.uid}>
                     {/* <h2>{story.title}</h2> */}
                     {story.isopen ? story.content : null}
                   </p>

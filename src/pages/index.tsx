@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Header />
-      <NewStory />
+      {/* <NewStory /> */}
       <StoryReader />
       <InputSection generateResponse={handleGenerateResponse} />
       <AnswerSection storedValues={storedValues} />

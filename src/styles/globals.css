@@ -8,8 +8,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #1D1E20;
-  color: #DADADB;
+  background: white;
+  color: black;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -55,8 +55,8 @@ button {
   font-family: 'Poppins',
     sans-serif;
   outline: none;
-  background-color: #343536;
-  color: #DADADB;
+  background-color: #f1dbd1;
+  color: black;
   /* transition: all 0.5s ease-in-out; */
 }
 
@@ -71,8 +71,8 @@ button {
 }
 
 .btn {
-  background: #000000;
-  color: #DADADB;
+  background: #c78761;
+  color: black;
   padding: 20px 0;
   font-size: 1.2rem;
   font-weight: 500;
@@ -134,13 +134,13 @@ button {
 }
 
 .answer-section .question {
-  background-color: #CA228C;
+  background-color: #c78761;
   padding: 20px;
 }
 
 
 .answer-section .answer {
-  background-color: #343536;
+  background-color: #f1dbd1;
   padding: 20px;
 }
 
@@ -167,4 +167,8 @@ button {
 .story-section {
   margin: 30px 0;
   text-align: center;
+}
+
+.story {
+  font-style: italic;
 }
