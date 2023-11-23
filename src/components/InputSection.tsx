@@ -26,18 +26,18 @@ export const InputSection = ({ generateResponse }: any) => {
           <textarea
             rows={5}
             className="form-control"
-            placeholder="物語を紡ぎ出すための短文を入力してください。"
+            placeholder="物語の続きとなる文章を入力しましょう。"
             value={queue}
             onChange={(e) => setQueue(e.target.value)}
           ></textarea>
-          <button className="btn" onClick={() => handleGenerateResponse(queue)}>
+          <button className="btn-input" onClick={() => handleGenerateResponse(queue)}>
             {isLoading ? (
               <span className="button-content">
                 <div className="spinner"></div>
                 <span>読み込み中...</span>
               </span>
             ) : (
-              <span>物語を紡ぐ</span>
+              <span>物語の続きを作成する</span>
             )}
           </button>
         </div>

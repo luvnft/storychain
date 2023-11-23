@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           current_timestamp,
           true    
         );
-    ` 
+    `
     return res.status(200)
   } catch (error) {
     return res.status(500).json({ error })

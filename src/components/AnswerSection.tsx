@@ -15,12 +15,12 @@ export const AnswerSection = ({ storedValues }: StoredValues) => {
   return (
     <>
       {isLoggedIn ? (
-        <>
-          <hr className="hr-line" />
-          <div className="answer-container">
-            <div className="answer-section">
-              {storedValues.map((value: any, index: any) => {
-                return (
+        <div className="answer-container">
+          <div className="answer-section">
+            {storedValues.map((value: any, index: any) => {
+              return (
+                <>
+                  <hr className="hr-line" />
                   <div className="answer-section" key={index}>
                     <p className="question">{value.question}</p>
                     <p className="answer">{value.answer}</p>
@@ -29,11 +29,11 @@ export const AnswerSection = ({ storedValues }: StoredValues) => {
                       <i className="fa-solid fa-copy"></i>
                     </div>
                   </div>
-                )
-              })}
-            </div>
+                </>
+              )
+            })}
           </div>
-        </>
+        </div>
       ) : (
         <div></div>
       )}

@@ -19,7 +19,7 @@ export const UserAttestation = () => {
 
   return (
     <button className="btn" onClick={() => setIsClicked(true)}>
-      証明書を確認する
+      物語を確認する
     </button>
   )
 }

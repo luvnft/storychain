@@ -16,12 +16,12 @@ export const Header = () => {
         <UserStatus />
       </div>
       <div className="header-section">
-        <h1>Send-ence</h1>
+        <img src="./images/send-ence_icon.png" alt="title" width={350} />
+        {/* <h1>Send-ence</h1> */}
         <p>
-          「Send-ence」は、共創の精神とAIの力を組み合わせた画期的な小説作成サービスです。
-          参加者が投稿した短文から、OpenAIが魅力的な物語を紡ぎ出します。
-          すべての寄稿はブロックチェーンに記録され、創造の瞬間が永遠に保たれます。
-          あなたもSend-enceで、次世代の物語作りに参加しましょう。
+          「Send-ence」では、あなたとAIの力を組み合わせて物語を創作します。<br />
+          すでにある物語の続きとして、あなたが文章を入力すると、AIが物語の続きを生成します。<br />
+          そして物語はブロックチェーンに記録され、創造の瞬間が永遠に保たれるのです。<br />
         </p>
       </div>
     </>

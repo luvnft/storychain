@@ -24,11 +24,11 @@ const openai = new OpenAI({
 export const generateResponse = async (queue: string): Promise<UserNovelData | undefined> => {
   const previousContent = await fetchStories()
 
-
   for (let i = 0; i < previousContent.length; i++) {
     if (previousContent[i].isopen) {
       userNovelData.storyId = previousContent[i].uid
-      userNovelData.previousContent = previousContent[i].content === null ? "" : previousContent[i].content
+      userNovelData.previousContent =
+        previousContent[i].content === null ? "" : previousContent[i].content
       break
     }
   }
