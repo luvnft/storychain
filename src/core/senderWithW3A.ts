@@ -3,7 +3,7 @@ import {
   getDefaultLightAccountFactoryAddress,
 } from "@alchemy/aa-accounts"
 import { AlchemyProvider } from "@alchemy/aa-alchemy"
-import { LocalAccountSigner, type SmartAccountSigner } from "@alchemy/aa-core"
+import { type SmartAccountSigner } from "@alchemy/aa-core"
 import { polygonMumbai } from "viem/chains"
 import { getWeb3AuthSigner } from "./web3Auth"
 

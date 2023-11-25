@@ -1,14 +1,9 @@
 import { SendUserOperationResult } from "@alchemy/aa-core"
 import { parseEther } from "viem"
-import { getSenderWithEoa } from "./senderWithEoa"
 import { getSenderWithW3A } from "./senderWithW3A"
-import { encodeFunctionData } from "viem"
-import { AlchemyTokenAbi, tokenContractAddress } from "../abi/alchemyToken.abi"
-import { logoutWeb3Auth } from "./web3Auth"
 
 export const sendUserOperation = async () => {
   const sender = await getSenderWithW3A()
-  // const sender = await getSenderWithEoa()
   sender.getAddress().then((address: string) => console.log("sender address: ", address))
 
   const targetAddress = "56a4975de8F187667AfDd1DBde72cf6CF88BfBb4"
@@ -19,14 +14,6 @@ export const sendUserOperation = async () => {
     data: "0x",
     value: amountToSend,
   })
-  // const result: SendUserOperationResult = await sender.sendUserOperation({
-  //   target: tokenContractAddress,
-  //   data: encodeFunctionData({
-  //     abi: AlchemyTokenAbi,
-  //     functionName: "mint",
-  //     args: [await sender.getAddress()],
-  //   }),
-  // })
 
   console.log("User operation result: ", result)
   console.log("\nWaiting for the user operation to be included in a mined transaction...")
@@ -41,6 +28,4 @@ export const sendUserOperation = async () => {
     hash: txHash,
   })
   console.log("\nTransaction receipt: ", txReceipt)
-
-  // await logoutWeb3Auth()
 }

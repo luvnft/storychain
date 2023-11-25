@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext, useRef } from "react"
 import { Web3AuthContext } from "../context/Web3AuthContext"
 import { useStories } from "../context/StoriesContext"
-import { closeStory, fetchStories, newStory } from "../service/handleStory"
+import { closeStory, newStory } from "../service/handleStory"
 
 export const NewStory = () => {
   const isFirstRender = useRef(true)

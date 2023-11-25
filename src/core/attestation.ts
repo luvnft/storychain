@@ -51,8 +51,6 @@ export const getAttestation = async () => {
     hash: txHash,
   })
   console.log("\nTransaction receipt: ", txReceipt)
-
-  // await logoutWeb3Auth()
 }
 
 export const getNovelAttestation = async (data: UserNovelData) => {

@@ -10,7 +10,6 @@ export const UserStatus = () => {
 
   const handleLogin = async () => {
     const msg = await login()
-    // alert(msg)
   }
 
   const handleLogout = async () => {

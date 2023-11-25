@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react"
+import { useEffect, useContext } from "react"
 import { Story } from "../common/types"
 import { fetchStories } from "../service/handleStory"
 import { Web3AuthContext } from "../context/Web3AuthContext"
@@ -33,7 +33,6 @@ export const StoryReader = () => {
             {stories !== undefined
               ? stories.map((story: Story) => (
                   <p className="story" key={story.uid}>
-                    {/* <h2>{story.title}</h2> */}
                     {story.isopen ? story.content : null}
                   </p>
                 ))

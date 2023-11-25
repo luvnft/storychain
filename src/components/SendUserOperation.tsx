@@ -1,4 +1,3 @@
-import { log } from "console"
 import { sendUserOperation } from "core/userOperation"
 
 export const SendUserOperation = (props: any) => {

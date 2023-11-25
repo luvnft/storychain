@@ -1,10 +1,7 @@
-import { AlchemyProvider } from "@alchemy/aa-alchemy"
 import { WalletClientSigner, type SmartAccountSigner } from "@alchemy/aa-core"
 import { Web3Auth } from "@web3auth/modal"
-import { sepoliaChainConfig, mumbaiChainConfig } from "config/w3aChainConfig"
+import { mumbaiChainConfig } from "config/w3aChainConfig"
 import { createWalletClient, custom } from "viem"
-import { getSenderWithW3A } from "./senderWithW3A"
-import { send } from "process"
 
 let web3auth: Web3Auth
 

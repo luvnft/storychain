@@ -11,11 +11,6 @@ let userNovelData: UserNovelData = {
   storyId: 0,
 }
 
-type NovelResponse = {
-  openAiResponse: string
-  storyId: number
-}
-
 const openai = new OpenAI({
   apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
   dangerouslyAllowBrowser: true,

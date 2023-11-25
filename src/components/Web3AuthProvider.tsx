@@ -1,4 +1,3 @@
-// Web3AuthProvider.js
 import { useState, useEffect } from "react"
 import { Web3AuthContext } from "../context/Web3AuthContext"
 import { Web3Auth } from "@web3auth/modal"

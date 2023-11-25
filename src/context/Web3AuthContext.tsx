@@ -1,7 +1,5 @@
-// Web3AuthContext.js
-import React, { createContext, useState, useEffect } from "react"
+import { createContext } from "react"
 import { Web3Auth } from "@web3auth/modal"
-import { mumbaiChainConfig } from "config/w3aChainConfig"
 
 type Web3AuthContextType = {
   web3auth: Web3Auth | null
